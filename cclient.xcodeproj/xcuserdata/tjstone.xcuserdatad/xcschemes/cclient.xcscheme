@@ -60,7 +60,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "client1 TJ-Stones-MacBook-Pro.local 49802"
+            argument = "client1 TJ-Stones-MacBook-Pro.local 49907   "
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

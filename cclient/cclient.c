@@ -56,7 +56,45 @@ int verifyInput(char *input) {
            || (strcmp(input, "%e") == 0));
 }
 
-void run() {
+void sendMessage(int socket_num, char input[]) {
+   char *send_buf;         //data buffer
+   int send_len= 0;        //amount of data to send
+   int sent= 0;            //actual amount of data sent
+   int bufsize = 1024;     //data buffer size
+   
+   /* initialize data buffer for the packet */
+   send_buf= (char *) malloc(bufsize);
+   
+   send_len = 0;
+   while ((send_buf[send_len] = getchar()) != '\n' && send_len < 80)
+      send_len++;
+   
+   send_buf[send_len] = '\0';
+   
+   /* now send the data */
+   sent =  send(socket_num, send_buf, send_len, 0);
+   
+   if(sent < 0)
+   {
+      perror("send call");
+      exit(-1);
+   }
+   
+   printf("String sent: %s \n", send_buf);
+   printf("Amount of data sent is: %d\n", sent);
+   
+}
+
+
+void checkCommand(int socket_num, char input[]) {
+   char command = input[1];
+   
+   if (command == 'M' || command == 'm') {
+      sendMessage(socket_num, input);
+   }
+}
+
+void run(int socket_num) {
    char input[PROMPT_LEN];
    int exit = 0;
    
@@ -69,12 +107,14 @@ void run() {
              || strcmp(input, "%E") == 0) {
             exit = 1;
          }
+         checkCommand(socket_num, input);
       }
       else {
          printf("Unkown Command\n");
       }
    }
 }
+
 
 int main(int argc, char * argv[])
 {
@@ -94,30 +134,8 @@ int main(int argc, char * argv[])
    /* set up the socket for TCP transmission  */
    socket_num= tcp_send_setup(argv[2], argv[3]);
    
-   /* initialize data buffer for the packet */
-   bufsize= 1024;
-   send_buf= (char *) malloc(bufsize);
+   run(socket_num);
    
-   /* get the data and send it   */
-   printf("Enter the data to send: ");
-   
-   send_len = 0;
-   while ((send_buf[send_len] = getchar()) != '\n' && send_len < 80)
-      send_len++;
-   
-   send_buf[send_len] = '\0';
-   
-   /* now send the data */
-   sent =  send(socket_num, send_buf, send_len, 0);
-   
-   if(sent < 0)
-   {
-      perror("send call");
-      exit(-1);
-   }
-   
-   printf("String sent: %s \n", send_buf);
-   printf("Amount of data sent is: %d\n", sent);
    
    close(socket_num);
    return 0;
