@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		084689AA1AE77C47004606A4 /* testing.c in Sources */ = {isa = PBXBuildFile; fileRef = 084689A61AE77C47004606A4 /* testing.c */; };
 		08CB92DA1AE62A7F00DAC314 /* cclient.c in Sources */ = {isa = PBXBuildFile; fileRef = 08CB92D81AE62A7F00DAC314 /* cclient.c */; };
 /* End PBXBuildFile section */
 
@@ -23,8 +24,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		084689A31AE77C47004606A4 /* networks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = networks.h; sourceTree = "<group>"; };
+		084689A61AE77C47004606A4 /* testing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = testing.c; sourceTree = "<group>"; };
+		084689A71AE77C47004606A4 /* testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testing.h; sourceTree = "<group>"; };
 		08CB92CE1AE62A6300DAC314 /* cclient */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cclient; sourceTree = BUILT_PRODUCTS_DIR; };
-		08CB92D81AE62A7F00DAC314 /* cclient.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cclient.c; sourceTree = "<group>"; };
+		08CB92D81AE62A7F00DAC314 /* cclient.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; lineEnding = 0; path = cclient.c; sourceTree = "<group>"; };
 		08CB92D91AE62A7F00DAC314 /* cclient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cclient.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +62,9 @@
 		08CB92D01AE62A6300DAC314 /* cclient */ = {
 			isa = PBXGroup;
 			children = (
+				084689A31AE77C47004606A4 /* networks.h */,
+				084689A61AE77C47004606A4 /* testing.c */,
+				084689A71AE77C47004606A4 /* testing.h */,
 				08CB92D81AE62A7F00DAC314 /* cclient.c */,
 				08CB92D91AE62A7F00DAC314 /* cclient.h */,
 			);
@@ -120,6 +127,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				084689AA1AE77C47004606A4 /* testing.c in Sources */,
 				08CB92DA1AE62A7F00DAC314 /* cclient.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,6 +242,7 @@
 				08CB92D71AE62A6300DAC314 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -11,4 +11,9 @@
 
 #include <stdio.h>
 
+typedef struct myHdr {
+   uint32_t seqNum;
+   uint8_t flag;
+} myHdr;
+
 #endif /* defined(__cclient__cclient__) */
